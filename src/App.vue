@@ -28,7 +28,8 @@ export default {
         const token = credential.accessToken;
         const user = result.user;
         console.log("✅ User signed in:", user);
-        console.log("🔐 Access Token for login:", credential);
+        console.log("🔐 User Credentials:", credential);
+        console.log("🔐 Access Token for login:", token);
       } catch (error) {
         console.error("❌ Error signing in:", error.message);
       }
