@@ -1,9 +1,11 @@
-<!-- eslint-disable no-unused-vars -->
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h1>Welcome to Aptitudo App</h1>
-    <button @click="loginWithGoogle">Login with Google</button>
+    <button @click="loginWithGoogle" class="google-login-btn">
+      <img src="./assets/google-icon.png" alt="Google Icon" class="google-icon" />
+      Login with Google
+    </button>
   </div>
 </template>
 
@@ -24,7 +26,6 @@ export default {
       try {
         const result = await signInWithPopup(auth, provider);
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        // eslint-disable-next-line no-unused-vars
         const token = credential.accessToken;
         const user = result.user;
         console.log("✅ User signed in:", user);
@@ -45,10 +46,22 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-button {
+
+.google-login-btn {
+  display: inline-flex;
+  align-items: center;
   padding: 10px 20px;
   font-size: 16px;
   margin-top: 20px;
   cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 </style>
