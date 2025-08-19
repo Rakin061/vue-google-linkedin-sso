@@ -6,6 +6,10 @@
       <img src="./assets/google-icon.png" alt="Google Icon" class="google-icon" />
       Login with Google
     </button>
+    <button @click="loginWithLinkedin" class="linkedin-login-btn">
+      <img src="./assets/linkedin-icon.jpg" alt="LinkedIn Icon" class="linkedin-icon" />
+      Login with LinkedIn
+    </button>
   </div>
 </template>
 
@@ -25,6 +29,7 @@ export default {
     async loginWithGoogle() {
       try {
         const result = await signInWithPopup(auth, provider);
+        console.log("🔐 Sign-in result:", result);
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
@@ -32,8 +37,20 @@ export default {
         console.log("🔐 User Credentials:", credential);
         console.log("🔐 Access Token for login:", token);
       } catch (error) {
-        console.error("❌ Error signing in:", error.message);
-      }
+        console.error("❌ Error signing in:", error);
+        // Handle Errors here.
+        const errorCode = error.code;
+        console.error("Error Code:", errorCode);
+        const errorMessage = error.message; 
+        console.error("Error Message:", errorMessage);
+        // The email of the user's account used.
+        const email = error.email;
+        console.error("User Email:", email);
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.error("Credential from Error:", credential);
+        // ...
+          }
     }
   }
 }
@@ -59,9 +76,28 @@ export default {
   border-radius: 4px;
 }
 
+.linkedin-login-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 4px;
+}
+
 .google-icon {
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
+
+.linkedin-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
 </style>
