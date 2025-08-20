@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <h1 class="text-2xl font-bold mb-4">Welcome to Aptitudo App</h1>
+    <h1 class="text-2xl font-bold mb-4">Welcome to Aptitudo SSO Auth</h1>
     
     <!-- Google Login -->
     <div>
       <button @click="loginWithGoogle" class="google-login-btn">
+      <img src="./assets/google-icon.png" alt="Google Icon" class="google-icon" />
         Login with Google
       </button>
     </div>
@@ -13,6 +14,7 @@
     <!-- LinkedIn Login -->
     <div class="mt-4">
       <button @click="loginWithLinkedin" class="linkedin-login-btn">
+        <img src="./assets/linkedin-icon.jpg" alt="LinkedIn Icon" class="linkedin-icon" />
         Login with LinkedIn
       </button>
     </div>
@@ -62,11 +64,14 @@ export default {
         const user = result.user;
 
        this.googleResponse = {
-          user: user.uid,
-          token
+          uid: user.uid,
+          name: user.displayName,
+          email: user.email,
+          token: token
         };
         this.showGoogleModal = true;
         console.log("✅ Google Response:", this.googleResponse);
+        console.log("👤 User Info:", user);
       } catch (error) {
         console.error("❌ Google Login Error:", error);
       }
