@@ -61,12 +61,11 @@ export default {
         const token = credential.accessToken;
         const user = result.user;
 
-        this.googleResponse = JSON.stringify({
+       this.googleResponse = {
           user: user.uid,
-          // token: credential,
           token
-        }, null, 2);
-
+        };
+        this.showGoogleModal = true;
         console.log("✅ Google Response:", this.googleResponse);
       } catch (error) {
         console.error("❌ Google Login Error:", error);
@@ -111,9 +110,10 @@ export default {
 
 
             // Step 3: Fetch user profile
-           const userProfile = await tokenResponse.json();
+            const userProfile = await tokenResponse.json();
             console.log('👤 LinkedIn Profile:', userProfile);
-            this.linkedinResponse = JSON.stringify(userProfile, null, 2);
+            this.linkedinResponse = userProfile;
+            this.showLinkedinModal = true;
                       }
         } catch (err) {
           // ignore CORS errors while popup is still open
