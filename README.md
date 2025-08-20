@@ -18,7 +18,7 @@ This is a Vue.js application that demonstrates **Single Sign-On (SSO) authentica
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/google-auth.git
+git clone https://github.com/Rakin061/vue-google-linkedin-sso.git
 cd vue-google-linkedin-sso
 ```
 ### 2 Install Dpendencies (Fronetend/Vue.js)
