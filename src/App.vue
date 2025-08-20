@@ -1,38 +1,55 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <h1>Welcome to Aptitudo App</h1>
-
+    <h1 class="text-2xl font-bold mb-4">Welcome to Aptitudo App</h1>
     
     <!-- Google Login -->
     <div>
-      <!-- Google Login -->
       <button @click="loginWithGoogle" class="google-login-btn">
         Login with Google
       </button>
-      <pre v-if="googleResponse">{{ googleResponse }}</pre>
     </div>
 
-   
-    <div>
-       <!-- LinkedIn Login -->
+    <!-- LinkedIn Login -->
+    <div class="mt-4">
       <button @click="loginWithLinkedin" class="linkedin-login-btn">
         Login with LinkedIn
       </button>
     </div>
+
+    <!-- JSON Modals -->
+    <JSONModal
+      :visible="showGoogleModal"
+      :jsonData="googleResponse"
+      title="Google Response"
+      @close="showGoogleModal = false"
+    />
+
+    <JSONModal
+      :visible="showLinkedinModal"
+      :jsonData="linkedinResponse"
+      title="LinkedIn Response"
+      @close="showLinkedinModal = false"
+    />
   </div>
+
+
 </template>
 
 <script>
+import JSONModal from './components/JSONModal.vue'
 import { auth, provider } from './firebase';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 export default {
-  name: 'App',
+  //name: 'App',
+  components: { JSONModal },
   data() {
     return {
       googleResponse: null,
       linkedinResponse: null,
+      showGoogleModal: false,
+      showLinkedinModal: false
     };
   },
   methods: {
