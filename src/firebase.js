@@ -3,13 +3,13 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "Enter your API key here",
-  authDomain: "Enter your Auth Domain here",
-  projectId: "Enter your Project ID here",
-  storageBucket: "Enter your Storage Bucket here",
-  messagingSenderId: "Enter your Messaging Sender ID here",
-  appId: "Enter your App ID here",
-  measurementId: "Enter your Measurement ID here"
+  apiKey: "<ENTER_YOUR_FIREBASE_API_KEY>",
+  authDomain: "<ENTER_YOUR_FIREBASE_AUTH_DOMAIN>",
+  projectId: "<ENTER_YOUR_FIREBASE_PROJECT_ID>",
+  storageBucket: "<ENTER_YOUR_FIREBASE_STORAGE_BUCKET>",
+  messagingSenderId: "<ENTER_YOUR_FIREBASE_MESSAGING_SENDER_ID>",
+  appId: "<ENTER_YOUR_FIREBASE_APP_ID>",
+  measurementId: "<ENTER_YOUR_FIREBASE_MEASUREMENT_ID>"
 };
 
 const app = initializeApp(firebaseConfig);
