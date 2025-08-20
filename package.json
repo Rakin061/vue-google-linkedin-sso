@@ -1,6 +1,7 @@
 {
   "name": "google-auth",
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
     "dev": "vite --port 9090",
     "serve": "vite --host 0.0.0.0 --port 9090",
@@ -11,7 +12,8 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "firebase": "^11.8.1"
+    "firebase": "^11.8.1",
+    "highlight.js": "^11.11.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
