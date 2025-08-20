@@ -4,10 +4,10 @@
     <h1>Welcome to Aptitudo App</h1>
 
     
+    <!-- Google Login -->
     <div>
       <!-- Google Login -->
       <button @click="loginWithGoogle" class="google-login-btn">
-        <img src="./assets/google-icon.png" alt="Google Icon" class="google-icon" />
         Login with Google
       </button>
       <pre v-if="googleResponse">{{ googleResponse }}</pre>
@@ -17,10 +17,8 @@
     <div>
        <!-- LinkedIn Login -->
       <button @click="loginWithLinkedin" class="linkedin-login-btn">
-        <img src="./assets/linkedin-icon.jpg" alt="LinkedIn Icon" class="linkedin-icon" />
         Login with LinkedIn
       </button>
-      <pre v-if="linkedinResponse">{{ linkedinResponse }}</pre>
     </div>
   </div>
 </template>
