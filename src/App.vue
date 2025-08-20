@@ -80,12 +80,16 @@ export default {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
         const user = result.user;
+        console.log("Google User:", user);
 
         this.googleResponse = {
           uid: user.uid,
           name: user.displayName,
           email: user.email,
-          token: token
+          access_token: token,
+          email_verified: user.emailVerified,
+          photo_url: user.photoURL,
+          phone_number: user.phoneNumber,
         };
         this.showGoogleModal = true;
       } catch (error) {
