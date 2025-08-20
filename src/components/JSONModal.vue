@@ -35,9 +35,26 @@ export default {
   components: { JSONTree },
   methods: {
     copyToClipboard() {
-      const jsonStr = typeof this.jsonData === "string" ? this.jsonData : JSON.stringify(this.jsonData, null, 2)
-      navigator.clipboard.writeText(jsonStr).then(() => alert("✅ Copied to clipboard!"))
-    }
+      const jsonStr =
+            typeof this.jsonData === "string"
+            ? this.jsonData
+            : JSON.stringify(this.jsonData, null, 2);
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(jsonStr)
+            .then(() => alert("✅ Copied to clipboard!"))
+            .catch(() => alert("❌ Failed to copy!"));
+        } else {
+            // fallback
+            const textarea = document.createElement("textarea");
+            textarea.value = jsonStr;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            alert("✅ Copied to clipboard!")
+        }
+        }
   }
 }
 </script>
