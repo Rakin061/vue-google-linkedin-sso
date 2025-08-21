@@ -22,4 +22,4 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-src/firebase.local.js
+src/firebase_local.js
