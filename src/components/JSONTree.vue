@@ -55,7 +55,7 @@
 
     <!-- Primitive -->
     <template v-else>
-      <span :class="valueClass">{{ formattedValue }}</span>
+      <span :class="[valueClass,'break-all']">{{ formattedValue }}</span>
     </template>
   </div>
 </template>
