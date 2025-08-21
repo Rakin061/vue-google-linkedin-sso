@@ -22,12 +22,4 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-<<<<<<< HEAD
 src/firebase.js # Firebase configuration file
-
-.env
-=======
-.env    
->>>>>>> 28f2397f084389caa5da76de834cf38d93b56cb2
-server/.env
-src/firebase.js
