@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 src/firebase.js # Firebase configuration file
 
+.env
+server/.env
+src/firebase.js
