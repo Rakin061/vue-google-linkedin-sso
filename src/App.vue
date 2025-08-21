@@ -59,7 +59,7 @@
 
 <script>
 import JSONModal from './components/JSONModal.vue'
-import { auth, provider } from './firebase';
+import { auth, provider } from './firebase_local';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 
 export default {
