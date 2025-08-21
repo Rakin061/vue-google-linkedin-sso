@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-/dist
+dist
 
 
 # local env files
@@ -22,5 +22,6 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-src/firebase.js # Firebase configuration file
-
+.env    
+server/.env
+src/firebase.js
